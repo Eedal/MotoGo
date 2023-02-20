@@ -9,8 +9,8 @@ interface Origin {
 }
 interface NavState {
   origin: Origin;
-  destination: string | null;
-  travelTimeInformation: string | null;
+  destination: Origin | null;
+  travelTimeInformation: any | null;
 }
 
 const initialState: NavState = {
@@ -19,7 +19,7 @@ const initialState: NavState = {
       lat: 11.208337230174132,
       lng: -74.18292069282194
     },
-    description: 'Mi ubicación'
+    description: 'Brisas - reserva de curinca, Carrera 30, Santa Marta, Magdalena, Colombia'
   },
   destination: null,
   travelTimeInformation: null,
@@ -32,10 +32,10 @@ export const navSlice = createSlice({
     setOrigin: (state, action: PayloadAction<Origin>) => {
       state.origin = action.payload;
     },
-    setDestination: (state, action: PayloadAction<string | null>) => {
+    setDestination: (state, action: PayloadAction<Origin | null>) => {
       state.destination = action.payload;
     },
-    setTravelTimeInformation: (state, action: PayloadAction<string>) => {
+    setTravelTimeInformation: (state, action: PayloadAction<any>) => {
       state.travelTimeInformation = action.payload;
     },
   },

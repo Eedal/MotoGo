@@ -5,6 +5,7 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from "react-redux";
 import { setDestination, setOrigin } from "../features/nav/navSlice";
+import NavFavourites from "../components/NavFavourites";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -45,15 +46,21 @@ const HomeScreen = () => {
                 })
               );
             }
+            console.log(data.description)
             dispatch(setDestination(null));
           }}
           fetchDetails={true}
           query={{
             key: GOOGLE_MAPS_APIKEY,
             language: "es",
+            components: 'country:co',
+            location: "11.208337230174132, -74.18292069282194",
+            radius: "15000"
           }}
+          
         />
         <NavOptions />
+        <NavFavourites />
       </View>
     </SafeAreaView>
   );
