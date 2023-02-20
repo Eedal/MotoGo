@@ -33,7 +33,6 @@ const Map = () => {
           `)
       fetch(
         `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_APIKEY}`
-        // `https://maps.googleapis.com/maps/api/distancematrix/json?origins=11.29184%2C-74.1464699&destinations=11.2432399%2C-74.21526829999999&key=AIzaSyAo4Kyka2Pv4ML-MPt6HtNtsC8kX59pEl4`
       )
         .then((res) => res.json())
         .then((data) => {
